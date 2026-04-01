@@ -54,3 +54,33 @@ const imagens = [
     }
   ];
 
+let bLeftEl = document.querySelector("#anterior");
+let bRightEl = document.querySelector("#proximo");
+let imagemEl = document.querySelector("#slide")
+let i = 0;
+
+bLeftEl.addEventListener('click', () => {
+  i--;
+  if(i<0){
+    imagemEl.src = "http://fegemo.github.io/cefet-web/images/osiris/"+imagens[imagens.length-1].arquivo;
+    imagemEl.alt = imagens[imagens.length-1].descricao;
+    i= imagens.length-1;
+  }else{
+    imagemEl.src = "http://fegemo.github.io/cefet-web/images/osiris/"+imagens[i].arquivo;
+    imagemEl.alt = imagens[i].descricao;
+  }
+  
+})
+
+bRightEl.addEventListener('click', () => {
+  i++;  
+  if(i>=imagens.length){
+    imagemEl.src = "http://fegemo.github.io/cefet-web/images/osiris/"+imagens[0].arquivo;
+    imagemEl.alt = imagens[0].descricao;
+    i=0;
+  }else{
+    imagemEl.src = "http://fegemo.github.io/cefet-web/images/osiris/"+imagens[i].arquivo;
+    imagemEl.alt = imagens[i].descricao;
+  }
+  
+})
